@@ -15,19 +15,13 @@ const submitData = (name, email) => {
         body: JSON.stringify(formData)
     }
   
-return fetch("http://localhost:3000/users", configObj)
-    .then(function(response) {  
-        return response.json();    
-    })
+    return fetch("http://localhost:3000/users", configObj)
+    .then( response => response.json() ) //change on this line
     .then(function(object) {    
-        const formDataText = document.createElement("p");     
-        let formDataName = object.name;
-        let formEmail = object.email;
-        formDataText.innerText = `${formDataName} - ${formEmail}`;
-        document.body.appendChild(formDataText);     
+        document.body.innerHTML = `${object.id}`;     
     })
     .catch(function(error) {     
         console.log(error.message);
-        alert("Bad things! Ragnarők!");
       });    
     }
+    
