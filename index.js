@@ -22,6 +22,8 @@ const submitData = (name, email) => {
     })
     .catch(function(error) {     
         console.log(error.message);
+        document.body.innerHTML = error.message;     
+
       });    
     }
     
